@@ -108,7 +108,6 @@
                     $quantidade = $_POST['quantidade'];
                     $adicionais = $_POST['adicionais'] ?? [];
 
-                    // Exemplo de processamento: exibir os valores
                     echo "<div class='col-12 mt-3'>";
                     echo "<h3>Resumo do Pedido:</h3>";
                     echo "<p>Nome: $nome</p>";
