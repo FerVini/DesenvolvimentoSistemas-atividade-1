@@ -15,7 +15,7 @@
 
         <div class="row justify-content-center border-bottom border-danger pb-5">
             <div class="col-md-7 p-2 border border-danger rounded bg-white">
-                <form action="POST" class="text-danger">
+                <form method="POST" class="text-danger">
                     <div class="mb-3">
                         <label for="nome" class="form-label">Qual o nome do cliente:</label>
                         <input type="text" name="nome" class="form-control border-danger">
@@ -36,19 +36,19 @@
 
                         <div class="col-md-2 mb-3">
                             <div>
-                                <input class="form-check-input" type="radio" name="pequeno" value="pequeno" id="tamanho1">
+                                <input class="form-check-input" type="radio" name="tamanho" value="pequeno" id="tamanho1">
                                 <label class="form-check-label" for="tamanho1">
                                     Pequeno
                                 </label>
                             </div>
                             <div>
-                                <input class="form-check-input" type="radio" name="pequeno" value="medio" id="tamanho2">
+                                <input class="form-check-input" type="radio" name="tamanho" value="medio" id="tamanho2">
                                 <label class="form-check-label" for="tamanho1">
                                     Médio
                                 </label>
                             </div>
                             <div>
-                                <input class="form-check-input" type="radio" name="pequeno" value="grande" id="tamanho3">
+                                <input class="form-check-input" type="radio" name="tamanho" value="grande" id="tamanho3">
                                 <label class="form-check-label" for="tamanho1">
                                     Grande
                                 </label>
@@ -62,25 +62,25 @@
 
                     <div class="mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="tomate" id="add-tomate">
+                            <input class="form-check-input" type="checkbox" name="adicionais[]" value="tomate" id="add-tomate">
                             <label class="form-check-label" for="add-tomate">
                                 Tomate
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="alface" id="add-alface">
+                            <input class="form-check-input" type="checkbox" name="adicionais[]" value="alface" id="add-alface">
                             <label class="form-check-label" for="add-alface">
                                 Alface
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="cebola" id="add-cebola">
+                            <input class="form-check-input" type="checkbox" name="adicionais[]" value="cebola" id="add-cebola">
                             <label class="form-check-label" for="add-cebola">
                                 Cebola
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="queijo" id="add-queijo">
+                            <input class="form-check-input" type="checkbox" name="adicionais[]" value="queijo" id="add-queijo">
                             <label class="form-check-label" for="add-queijo">
                                 Queijo
                             </label>
@@ -94,11 +94,18 @@
 
         <div class="row">
                 <?php 
-                if () {
-                    $nome = $_POST['nome'] ?? '';
-                    $pedido = $_POST['pedido'] ?? '';
-                    $tamanho = $_POST['tamanho'] ?? '';
-                    $quantidade = $_POST['quantidade'] ?? 0;
+                if (
+                    isset (
+                        $_POST['nome'],
+                        $_POST['pedido'],
+                        $_POST['tamanho'],
+                        $_POST['quantidade']
+                    )
+                ) {
+                    $nome = $_POST['nome'];
+                    $pedido = $_POST['pedido'];
+                    $tamanho = $_POST['tamanho'];
+                    $quantidade = $_POST['quantidade'];
                     $adicionais = $_POST['adicionais'] ?? [];
 
                     // Exemplo de processamento: exibir os valores
